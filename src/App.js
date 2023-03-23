@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import Calanders from './component/Calanders/Calanders';
+import Header from './component/Header/Header';
+import React, { useState } from 'react';
 
 function App() {
+  const [searchValue, setSearchValue] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container mx-auto">
+      <Header setSearchValue={setSearchValue} searchValue={searchValue}></Header>
+      <Calanders city={searchValue}></Calanders>
+      
     </div>
   );
 }
